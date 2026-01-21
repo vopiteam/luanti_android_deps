@@ -43,10 +43,11 @@ jobs:
         ls -lh ../deps-lite.zip
 
     - name: Upload and tag
-      uses: pyTooling/Actions/releaser@main
+      uses: softprops/action-gh-release@v2
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        tag: 'latest'
-        files: |
-          deps-lite.zip
+        tag_name: latest
+        name: Latest Build
+        files: deps-lite.zip
+        prerelease: false
+        make_latest: true
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
