@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
 repo=https://luajit.org/git/luajit.git
-rev=e17ee83326f73d2bbfce5750ae8dc592a3b63c27
+# Must equal the iOS build's LuaJIT pin: bytecode from any other LuaJIT is refused.
+rev=4886b676a698acc4bbdf54adfabb3e33a8c020e8
 
 download () {
 	if [ ! -d LuaJIT/.git ]; then
